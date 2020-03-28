@@ -1,0 +1,43 @@
+
+
+spring:
+  datasource:
+    write:
+      jdbc-url: jdbc:mysql://119.3.43.97:3306/agriculture?characterEncoding=utf-8&useSSL=true&serverTimezone=GMT
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: David@123
+    read:
+      jdbc-url: jdbc:mysql://119.3.18.147:3306/agriculture?characterEncoding=utf-8&useSSL=true&serverTimezone=GMT
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: David@123
+  jpa:
+    show-sql: false
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: true
+  application:
+    name: rest-client
+  cloud:
+    config:
+      fail-fast: false
+      discovery:
+        enabled: true
+        service-id: config-server
+server:
+  port: 8776
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 12000
