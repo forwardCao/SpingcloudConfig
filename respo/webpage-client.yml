@@ -5,14 +5,14 @@ spring:
     username: root
     password: David@123
   jpa:
-    show-sql: false
+    show-sql: true
     database: mysql
     hibernate:
       ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: true
-
-
 
 server:
   port: 8768
